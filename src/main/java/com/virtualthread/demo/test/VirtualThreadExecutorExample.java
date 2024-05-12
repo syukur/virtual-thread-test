@@ -4,7 +4,7 @@
  * Executor.newVirtualThreadPerTaskExecutor
 * */
 
-package com.virtualthread.demo;
+package com.virtualthread.demo.test;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
