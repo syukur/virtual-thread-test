@@ -6,13 +6,11 @@ import java.time.format.DateTimeFormatter;
 
 public class Writer {
 
-    BufferedWriter bufferedWriter;
-
     File file;
 
     DateTimeFormatter dateTimeFormatter =  DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
-    PrintWriter printWriter;
+    BufferedWriter bufferedWriter;
 
     public Writer( String fileName ){
 
@@ -32,23 +30,20 @@ public class Writer {
         }
 
         try {
-            printWriter = new PrintWriter(fileName);
-            printWriter.println("test 123");
-            printWriter.println("\n");
-            printWriter.println("ok mantap");
-            printWriter.close();
-        } catch (FileNotFoundException e) {
+            bufferedWriter = new BufferedWriter( new FileWriter(fileName, true)  );
+//            bufferedWriter.write("HEADER 02");
+//            bufferedWriter.newLine();
+//            bufferedWriter.flush();
+        } catch (IOException e) {
             System.out.println("Error 02");
             e.printStackTrace();
             throw new RuntimeException(e);
         }
 
-
-
-
     }
 
     public void write( String text ){
+
         try {
 
             var now = LocalDateTime.now();
@@ -60,6 +55,7 @@ public class Writer {
 
             bufferedWriter.write( content );
             bufferedWriter.newLine();
+            bufferedWriter.flush();
         } catch (IOException e) {
             System.out.println( "Error On Write" );
             e.printStackTrace();
