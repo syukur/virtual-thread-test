@@ -45,7 +45,7 @@ public class WriteFileVIrtualThreadSimulation {
 
         }
 
-        System.in.read();
+        //System.in.read();
 
 
     }

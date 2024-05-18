@@ -31,9 +31,6 @@ public class Writer {
 
         try {
             bufferedWriter = new BufferedWriter( new FileWriter(fileName, true)  );
-//            bufferedWriter.write("HEADER 02");
-//            bufferedWriter.newLine();
-//            bufferedWriter.flush();
         } catch (IOException e) {
             System.out.println("Error 02");
             e.printStackTrace();
