@@ -1,6 +1,6 @@
 package com.virtualthread.demo.test;
 
-public class VIrtualThreadExample {
+public class VirtualThreadExample {
 
     public static void main(String[] args) {
 
