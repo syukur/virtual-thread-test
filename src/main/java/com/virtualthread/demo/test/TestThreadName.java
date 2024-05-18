@@ -1,7 +1,5 @@
 package com.virtualthread.demo.test;
 
-import java.time.Duration;
-
 public class TestThreadName {
     public static void main(String[] args) throws InterruptedException {
         var thread = new Thread(() -> {
