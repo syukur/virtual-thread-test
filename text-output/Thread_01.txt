@@ -1,0 +1,10 @@
+18-05-2024 19:24:56 fileName: text-output/Thread_01.txt Testing Write... 0 
+18-05-2024 19:24:58 fileName: text-output/Thread_01.txt Testing Write... 1 
+18-05-2024 19:25:00 fileName: text-output/Thread_01.txt Testing Write... 2 
+18-05-2024 19:25:02 fileName: text-output/Thread_01.txt Testing Write... 3 
+18-05-2024 19:25:04 fileName: text-output/Thread_01.txt Testing Write... 4 
+18-05-2024 19:25:06 fileName: text-output/Thread_01.txt Testing Write... 5 
+18-05-2024 19:25:08 fileName: text-output/Thread_01.txt Testing Write... 6 
+18-05-2024 19:25:10 fileName: text-output/Thread_01.txt Testing Write... 7 
+18-05-2024 19:25:12 fileName: text-output/Thread_01.txt Testing Write... 8 
+18-05-2024 19:25:14 fileName: text-output/Thread_01.txt Testing Write... 9 

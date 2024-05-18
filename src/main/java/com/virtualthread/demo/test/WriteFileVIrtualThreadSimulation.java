@@ -23,10 +23,8 @@ public class WriteFileVIrtualThreadSimulation {
         var executor = Executors.newVirtualThreadPerTaskExecutor();
 
         for ( String fileName : filesName ){
-
             executor.execute(() -> {
                 Writer writer = new Writer( fileName );
-
                 for (int i = 0; i < 10; i++) {
 
                     try {
@@ -36,16 +34,11 @@ public class WriteFileVIrtualThreadSimulation {
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-
-
                 }
-
-
             });
-
         }
 
-        //System.in.read();
+        System.in.read();
 
 
     }
