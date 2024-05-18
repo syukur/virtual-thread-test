@@ -1,4 +1,4 @@
-package com.virtualthread.demo;
+package com.virtualthread.demo.test;
 
 public class TestThreadState {
     public static void main(String[] args) throws InterruptedException {
