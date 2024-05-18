@@ -19,8 +19,5 @@ public class TestThreadState {
 
         var state2 = String.format("Thread State 2 : %s", thread.getState());
         System.out.println(state2);
-
-
-
     }
 }
