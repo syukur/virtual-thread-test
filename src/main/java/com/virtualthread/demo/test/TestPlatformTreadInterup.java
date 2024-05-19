@@ -30,7 +30,7 @@ public class TestPlatformTreadInterup {
 
         Thread.sleep(Duration.ofSeconds(8));
         thread.interrupt();
-        System.out.println("Menunggu Thread Selasai");
+        System.out.println("Menunggu Thread Selesai");
         thread.join();
         System.out.println("Program Selesai");
 
