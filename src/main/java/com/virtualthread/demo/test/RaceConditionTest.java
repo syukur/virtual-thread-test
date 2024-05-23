@@ -8,16 +8,9 @@ public class RaceConditionTest {
         Counter counter = new Counter();
 
         Runnable runnable = () -> {
-            for (int i = 0; i < 100; i++){
-                try {
-                    Thread.sleep(Duration.ofSeconds(2));
+            for (int i = 0; i < 1000000; i++){
                     counter.increment();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-
             }
-
         };
 
 //        Thread thread1 = Thread.ofVirtual().start(runnable);
