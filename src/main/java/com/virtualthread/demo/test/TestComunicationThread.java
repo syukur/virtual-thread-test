@@ -1,6 +1,8 @@
 package com.virtualthread.demo.test;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +29,7 @@ public class TestComunicationThread {
                 try {
                     lock.wait();
 
-                    String text = String.format("add member done here is the members: %s", members.toString());
+                    String text = String.format("%s: add member done here is the members: %s", LocalDateTime.now().toString() ,members.toString());
                     System.out.println( text );
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
@@ -42,7 +44,7 @@ public class TestComunicationThread {
                     for ( String prospect :  prospects ){
                         Thread.sleep(Duration.ofSeconds(1));
                         members.add( prospect );
-                        String text = String.format("%s added as member", prospect);
+                        String text = String.format("%s: %s added as member", LocalDateTime.now().toString(), prospect);
                         System.out.println( text );
                     }
 
