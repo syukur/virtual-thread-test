@@ -2,10 +2,11 @@ package com.virtualthread.demo.test;
 
 import java.time.Duration;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class TestThreadPool {
+public class TestThreadPoolRejected {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -13,14 +14,17 @@ public class TestThreadPool {
         var maxThread = 100;
         var keepAlive = 1;
         var timeUnit = TimeUnit.MINUTES;
-        var queue = new ArrayBlockingQueue<Runnable>(100);
+        var queue = new ArrayBlockingQueue<Runnable>(10);
+
+        LogRejectedHandler logRejectedHandler = new LogRejectedHandler();
 
         var executor = new ThreadPoolExecutor(
                 coreThread,
                 maxThread,
                 keepAlive,
                 timeUnit,
-                queue
+                queue,
+                logRejectedHandler
         );
 
         for (int i = 0; i < 100; i++) {
@@ -40,5 +44,16 @@ public class TestThreadPool {
         executor.shutdownNow();
         executor.awaitTermination(1, TimeUnit.DAYS);
 
+    }
+
+    private static class LogRejectedHandler implements RejectedExecutionHandler {
+
+        @Override
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
+
+            //String text = String.format( "Task: %s is rejected", r );
+            //System.out.println( text );
+            System.out.println( "Task Was Rejected" );
+        }
     }
 }
