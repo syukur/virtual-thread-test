@@ -1,11 +1,10 @@
 package com.virtualthread.demo.test;
 
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 
 public class TestComunicationThread {
     public static void main(String[] args) throws InterruptedException {
@@ -58,8 +57,9 @@ public class TestComunicationThread {
         thread1.start();
         thread2.start();
 
-        thread1.join();
-        thread2.join();
+//        thread1.join();
+//        thread2.join();
+
 
     }
 }
