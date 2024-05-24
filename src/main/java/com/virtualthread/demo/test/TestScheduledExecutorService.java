@@ -10,7 +10,8 @@ public class TestScheduledExecutorService {
 
     static DateTimeFormatter dateTimeFormatter =  DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss.SSS");
     public static void main(String[] args) throws InterruptedException {
-            var scheduledExecutor = Executors.newSingleThreadScheduledExecutor(Thread.ofVirtual().factory());
+
+        var scheduledExecutor = Executors.newSingleThreadScheduledExecutor(Thread.ofVirtual().factory());
 
         ScheduledFuture<?> future = scheduledExecutor.scheduleAtFixedRate(
                 () -> {
