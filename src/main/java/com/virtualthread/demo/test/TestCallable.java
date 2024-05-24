@@ -6,26 +6,30 @@ import java.util.concurrent.*;
 public class TestCallable {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
+        // 1. Define the callable
         Callable<String> callable = () -> {
             Thread.sleep(Duration.ofSeconds(5));
             return "Hai Nama ku Azka";
         };
 
+        // 2. Create executorService
+        ExecutorService executor = Executors.newSingleThreadExecutor();
 
-        Future<String> future;
+        // 3. Execute the execitorService, then put the result into Future
+        Future<String> future = executor.submit(callable);
 
-        try (ExecutorService executor = Executors.newSingleThreadExecutor()) {
-
-            future = executor.submit(callable);
-            while ( !future.isDone() ){
+        // 4. Loop Until callable done
+        while ( !future.isDone() ){
                 Thread.sleep(Duration.ofSeconds(1));
-                System.out.println("Thread still waiting to done...");
-            }
-
+                System.out.println("Waiting The Callable done...");
         }
 
-        String text = String.format("Finally Thread is done, result of callable is: %s", future.get());
+        // 5. Print the result if callable done
+        String text = String.format("Finally Callable is done, result of callable is: %s", future.get());
         System.out.println( text );
 
+        // 6. shutdown the executor
+        executor.shutdown();
+        executor.awaitTermination(1, TimeUnit.DAYS);
     }
 }
