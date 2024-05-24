@@ -7,12 +7,23 @@ import java.util.concurrent.*;
 public class TestCompletable {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         //System.out.println(getValue().get()); // test getValue
-        System.out.println(getFastest().get());
+        //System.out.println(getFastest().get());
+
+        CompletableFuture<String> completableFuture = getValue();
+
+        CompletableFuture<String[]> completableFuture1 =
+                completableFuture.thenApply(string -> string.toLowerCase())
+                                 .thenApply(string -> string.split(" "));
+
+        String[] strings = completableFuture1.get();
+        for (String string : strings) {
+            System.out.println(string);
+        }
     }
 
     /** Contoh Penggunaan Completable
      * */
-   private static Future<String> getValue(){
+   private static CompletableFuture<String> getValue(){
         var executor = Executors.newVirtualThreadPerTaskExecutor();
         var completable = new CompletableFuture<String>();
 
