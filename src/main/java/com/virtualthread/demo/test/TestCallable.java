@@ -20,10 +20,10 @@ public class TestCallable {
         Future<String> future = executor.submit(callable);
 
         // 4. Loop Until callable done
-        while ( !future.isDone() ){
-                Thread.sleep(Duration.ofSeconds(1));
-                System.out.println("Waiting The Callable done...");
-        }
+//        while ( !future.isDone() ){
+//                Thread.sleep(Duration.ofSeconds(1));
+//                System.out.println("Waiting The Callable done...");
+//        }
 
         // 5. Print the result if callable done
         String text = String.format("Finally Callable is done, result of callable is: %s", future.get());
