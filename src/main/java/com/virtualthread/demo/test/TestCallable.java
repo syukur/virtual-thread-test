@@ -13,7 +13,8 @@ public class TestCallable {
         };
 
         // 2. Create executorService
-        ExecutorService executor = Executors.newSingleThreadExecutor();
+        //ExecutorService executor = Executors.newSingleThreadExecutor();
+        ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
 
         // 3. Execute the execitorService, then put the result into Future
         Future<String> future = executor.submit(callable);
@@ -29,7 +30,7 @@ public class TestCallable {
         System.out.println( text );
 
         // 6. shutdown the executor
-        executor.shutdown();
-        executor.awaitTermination(1, TimeUnit.DAYS);
+        //executor.shutdown();
+        //executor.awaitTermination(1, TimeUnit.DAYS);
     }
 }
