@@ -14,7 +14,7 @@ public class TestScheduledExecutorService {
 
         ScheduledFuture<?> future = scheduledExecutor.scheduleAtFixedRate(
                 () -> {
-                    System.out.println("["+getCurrentDateTime()+"] Schedule Executed...");
+                    System.out.println("["+getCurrentDateTime()+"] [" + Thread.currentThread() + "]Schedule Executed... ");
                 },
                 1,
                 1,
@@ -22,7 +22,7 @@ public class TestScheduledExecutorService {
         );
 
 
-        System.out.println("["+getCurrentDateTime()+"] waiting for executed... (" + future.getDelay( TimeUnit.MILLISECONDS ) + "milis)");
+        System.out.println("["+getCurrentDateTime()+"] waiting for executed... (" + future.getDelay( TimeUnit.MILLISECONDS ) + " milis)");
 
         scheduledExecutor.awaitTermination(1, TimeUnit.DAYS);
 
