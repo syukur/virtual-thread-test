@@ -2,7 +2,7 @@ package com.virtualthread.demo.test;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-public class AtomicCounter {
+public class CounterAtomic {
 
     AtomicLong value = new AtomicLong(0L);
 

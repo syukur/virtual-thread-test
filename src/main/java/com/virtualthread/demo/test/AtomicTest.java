@@ -1,13 +1,9 @@
 package com.virtualthread.demo.test;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 public class AtomicTest {
     public static void main(String[] args) throws InterruptedException {
 
-        var counter = new AtomicCounter();
+        var counter = new CounterAtomic();
         //var counter = new PlainCounter();
 
         Runnable runnable =() -> {
