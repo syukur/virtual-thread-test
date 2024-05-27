@@ -19,7 +19,7 @@ public class CountDownLatchTest {
 
             Runnable runnable = () -> {
                 try {
-                    System.out.println( getCurrentDateTime() + "Thread: " + Thread.currentThread() + " Started");
+                    System.out.println( getCurrentDateTime() + "Thread: " + Thread.currentThread() + " Started ");
                     Thread.sleep(Duration.ofSeconds(2));
                     System.out.println( getCurrentDateTime() + "Thread: " + Thread.currentThread() + " Finish");
                     System.out.println();
@@ -36,8 +36,9 @@ public class CountDownLatchTest {
         executor.execute(() -> {
 
             try {
+                System.out.println( getCurrentDateTime() + "Thread: " + Thread.currentThread() + " Is Waiting");
                 countDownLatch.await();
-                System.out.println(getCurrentDateTime() + "Thread: " + Thread.currentThread() + " All Task Finished");
+                System.out.println(getCurrentDateTime() + "Thread: " + Thread.currentThread() + " All Task Finished And Thread 6 can RUn");
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
