@@ -10,13 +10,15 @@ public class TestCyclicBarrier {
         ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
         CyclicBarrier cyclicBarrier = new CyclicBarrier(5);
 
-        for (int i = 0; i < 5; i ++){
+        for (int i = 0; i < 10; i ++){
+
+            final int index = i;
 
             Runnable runnable = () -> {
                 try {
                     System.out.println(
                             Helper.getCurrentDateTime() +
-                            Thread.currentThread() + " is waiting to be executed" +
+                            Thread.currentThread() + " (" + index + ") is waiting to be executed" +
                             " sisa antrian: " + cyclicBarrier.getNumberWaiting()
                     );
 
@@ -25,7 +27,7 @@ public class TestCyclicBarrier {
 
                     System.out.println(
                             Helper.getCurrentDateTime() +
-                            Thread.currentThread() + " Was Done Executed." +
+                            Thread.currentThread() + " ( " + index + " ) Was Done Executed." +
                             " sisa antrian: " + cyclicBarrier.getNumberWaiting()
                     );
 

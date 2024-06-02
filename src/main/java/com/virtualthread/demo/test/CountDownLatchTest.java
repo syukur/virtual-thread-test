@@ -17,11 +17,13 @@ public class CountDownLatchTest {
 
         for (int i = 1; i <= 5; i ++){
 
+           final int index =  i;
+
             Runnable runnable = () -> {
                 try {
-                    System.out.println( getCurrentDateTime() + "Thread: " + Thread.currentThread() + " Started ");
+                    System.out.println( getCurrentDateTime() + "Thread: (" + index + ")" + Thread.currentThread() + " Started ");
                     Thread.sleep(Duration.ofSeconds(2));
-                    System.out.println( getCurrentDateTime() + "Thread: " + Thread.currentThread() + " Finish");
+                    System.out.println( getCurrentDateTime() + "Thread: (" + index + ")" + Thread.currentThread() + " Finish");
                     System.out.println();
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
