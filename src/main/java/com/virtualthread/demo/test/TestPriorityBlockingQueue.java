@@ -1,11 +1,12 @@
 package com.virtualthread.demo.test;
 
 import java.time.Duration;
+import java.util.Comparator;
 import java.util.concurrent.*;
 
 public class TestPriorityBlockingQueue {
     public static void main(String[] args) throws InterruptedException {
-        PriorityBlockingQueue<Integer> queue = new PriorityBlockingQueue<>();
+        PriorityBlockingQueue<Integer> queue = new PriorityBlockingQueue<Integer>(10, Comparator.reverseOrder());
         ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
 
         for (int i = 0; i < 10; i++) {
