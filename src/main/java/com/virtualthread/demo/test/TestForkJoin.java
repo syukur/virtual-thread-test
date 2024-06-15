@@ -11,7 +11,7 @@ public class TestForkJoin {
 
     public static void main(String[] args) throws InterruptedException {
         var pool = ForkJoinPool.commonPool();
-        List<Integer> integers = IntStream.range(0,1000).boxed().toList();
+        List<Integer> integers = IntStream.range(0,1000).boxed().collect(Collectors.toList());
 
         var task = new SimpleForkJoinTask(integers);
         pool.execute(task);
