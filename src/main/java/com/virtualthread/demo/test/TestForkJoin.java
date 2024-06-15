@@ -16,6 +16,7 @@ public class TestForkJoin {
         var task = new SimpleForkJoinTask(integers);
         pool.execute(task);
 
+
         pool.shutdown();
         pool.awaitTermination(1, TimeUnit.DAYS);
     }
