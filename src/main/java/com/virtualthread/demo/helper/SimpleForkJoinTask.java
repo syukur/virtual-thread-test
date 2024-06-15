@@ -15,7 +15,7 @@ public class SimpleForkJoinTask extends RecursiveAction {
 
     @Override
     protected void compute() {
-        if( integers.size() <= 10 ){
+        if( this.integers.size() <= 10 ){
             // execute the job
             doExecute();
         }else{
@@ -35,10 +35,10 @@ public class SimpleForkJoinTask extends RecursiveAction {
         System.out.println("fork...");
         System.out.println("list.size..." + integers.size());
 
-        var half = this.integers.size() / 2;
+        //var half = ;
 
-        List<Integer> integers1 = this.integers.subList(0, half);
-        List<Integer> integers2 = integers1.subList(half, this.integers.size());
+        List<Integer> integers1 = this.integers.subList(0, this.integers.size() / 2);
+        List<Integer> integers2 = integers1.subList(this.integers.size() / 2, this.integers.size());
 
         SimpleForkJoinTask task1 = new SimpleForkJoinTask(integers1);
         SimpleForkJoinTask task2 = new SimpleForkJoinTask(integers2);

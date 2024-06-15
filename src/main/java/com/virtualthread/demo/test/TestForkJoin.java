@@ -2,6 +2,7 @@ package com.virtualthread.demo.test;
 
 import com.virtualthread.demo.helper.SimpleForkJoinTask;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
@@ -16,6 +17,8 @@ public class TestForkJoin {
         var task = new SimpleForkJoinTask(integers);
         pool.execute(task);
 
+
+        Thread.sleep(Duration.ofDays(1));
 
         pool.shutdown();
         pool.awaitTermination(1, TimeUnit.DAYS);
